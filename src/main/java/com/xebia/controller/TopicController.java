@@ -13,29 +13,29 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.xebia.domain.Message;
+import com.xebia.domain.Response;
 
 @RestController
 public class TopicController {
-	
+
 	private static final Logger LOGGER = LoggerFactory.getLogger(TopicController.class);
 	private static final String JMS_CONNECTION_FACTORY = "java:comp/env/jmsConnectionFactory";
 	private static final String TOPIC = "java:comp/env/jndi/myTopic";
-	private static final String SUCCESS = "success";
-	private static final String FAILED = "failed";
-	
+	private static final String SUCCESS = "Success";
+	private static final String FAILED = "Failed";
+
 	@RequestMapping(value = "/sendMessage", method = RequestMethod.POST)
-	public @ResponseBody String sendMessage(@RequestBody Message message) throws Exception {
+	public Response sendMessage(@RequestBody Message message) throws Exception {
 		try {
 			sendMessageToWmqTopic(message);
 		} catch (Exception e) {
 			LOGGER.error("Exception Occurred", e);
-			return FAILED;
+			return new Response(FAILED);
 		}
-		return SUCCESS;
+		return new Response(SUCCESS);
 	}
 
 	private void sendMessageToWmqTopic(final Message message) throws Exception {

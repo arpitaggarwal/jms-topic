@@ -8,6 +8,9 @@ jmsapp.controller('MessageController', function($scope, $http) {
 			method : 'POST',
 			url : '/jms-topic/sendMessage',
 			data : $scope.sendMessageFormData,
+		}).success(function(data) {
+			$scope.showResult = true;
+			$scope.result = data.result;
 		});
 	};
 });
