@@ -13,7 +13,7 @@ Use ```strmqm``` command to start the queue manager QMA as follow:
 strmqm QMA
 ```
 
-Start MQSC to define a local topic called MYTOPIC with topic string called News then stop MQSC as follows:
+Start MQSC to define a local topic called ```**MYTOPIC**``` with topic string called ```**News**``` then stop MQSC as follows:
 
 ```bash
 runmqsc QMA
