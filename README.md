@@ -13,6 +13,14 @@ Use ```strmqm``` command to start the queue manager QMA as follow:
 strmqm QMA
 ```
 
+Start MQSC to disable the **```CHLAUTH```** of a Queue Manager(QMGR) then stop MQSC as follows:
+
+```bash 
+runmqsc QMA
+ALTER QMGR CHLAUTH(DISABLED)
+end
+```
+
 Start MQSC to define a local topic called **```MYTOPIC```** with topic string called **```News```** then stop MQSC as follows:
 
 ```bash
@@ -37,3 +45,5 @@ References:
 2. http://www-01.ibm.com/support/docview.wss?uid=swg27016146
 
 3. http://mqpubsub.blogspot.in/
+
+4. https://www.ibm.com/developerworks/community/blogs/aimsupport/entry/blocked_by_chlauth_why?lang=en
