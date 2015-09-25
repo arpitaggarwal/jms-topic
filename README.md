@@ -26,7 +26,7 @@ To get the message, Change into the MQ_INSTALLATION_PATH/samp/bin directory and 
 
 ```bash
 cd /opt/mqm/samp/bin/
-./amqsget QUEUE1 QMA
+./amqssub News QMA
 
 ```
 
